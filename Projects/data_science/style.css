@@ -1,11 +1,14 @@
-html{
-    --text-color-normal: #0a244d;
-    --text-color-light: #8cadb9;
-}
-
-html[data-theme='dark']{
-    --text-color-normal: hsl(210, 10%, 62%);
-    --text-color-light: hsl(210, 15%, 35%);
-    --text-color-richer: hsl(210, 50%, 72%);
-    --text-color-highlight: hsl(25, 70%, 45%);
-}
+html[data-theme='dark'] {
+    --hue: 210; /* Blue */
+    --accent-hue: 25; /* Orange */
+    --text-color-normal: hsl(var(--hue), 10%, 62%);
+    --text-color-light: hsl(var(--hue), 15%, 35%);
+    --text-color-richer: hsl(var(--hue), 50%, 72%);
+    --text-color-highlight: hsl(var(--accent-hue), 70%, 45%);
+    --link-color: hsl(var(--hue), 90%, 70%);
+    --accent-color: hsl(var(--accent-hue), 100%, 70%);
+    --error-color: rgb(240, 50, 50);
+    --button-background: hsl(var(--hue), 63%, 43%);
+    --button-text-color: black;
+    --background: hsl(var(--hue), 20%, 12%);
+  }
