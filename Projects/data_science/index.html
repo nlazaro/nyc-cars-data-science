@@ -6,36 +6,112 @@
         <link rel="stylesheet" href="styles.css">
         <script src="idk.js"></script>
         <title>CSCI-39542 Project</title>
+        <style>
+            img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            }
+        </style>
     </head>
     <body>
         <button class="btn-toggle">Toggle Dark-Mode</button>
-        <h1>Should NYC ban non-essential motor-vehicles?</h1>
-        <img src=no-cars.png border="2">
+        <h1>What is the true impact of motor-vehicles in NYC?</h1>
+        <img src=no-cars.png border="2" class="center">
         <h2>Summary:</h2>
-        <p>NYC's #1 cause of greenhouse gases come from vehicles, the average vehicle speed is 4.7 mph in Manhattan, and pretty much majority of the road goes to vehicles leaving minimal walking space for pedestrians. With climate change affecting NYC too, we need to look at traffic collisions and fatalities versus the use of protected bike lines, express bus lanes, and other alternative public transportation. Possible solutions may be be finding if banning non-essential vehicles would lower NYC's greenhouse gas emissions, lower commute time for New Yorkers, and/or lower traffic collisions and fatalities city-wide.</p>
+        <p>NYC's #1 cause of greenhouse gases come from vehicles, the average vehicle speed is 4.7 mph in Manhattan,
+            and pretty much majority of the road goes to vehicles leaving minimal walking space for pedestrians. Thousands
+            been killed directly and indirectly by these man-made machines, and with current talks about congestion prices
+            in lower Manhattan, how impactful are these motor-vehicles in NYC? (Spoiler: The total amount of all collisions in
+            NYC since Jan 2016 is 1,119,900, which is ~3,068 crashes every single day in NYC.)</p>
         <hr>
 
-        <h2>Overview:</h2>
-        <p>placeholder</p>
+        <h2>Overview:
+        </h2>
+        <p> This project is about visualizing data related to motor-vehicles fatal collisions, and non-fatal collisions.
+        I used various charts (as shown below) to visual them. Data comes directly from NYC's government website: NYC open
+        data. Tools I used include Python 3.9, pandas, matplotlib, seaborn, and folium. My underlying hypothesis is whether
+            vehicles collisions are as big as we may or may not believe.</p>
         <hr>
 
         <h2>Data:</h2>
-        <p>placeholder</p>
+        <p>NYC Open Data's Motor Vehicle Collisions: The data collected spans from 2016 to 2021. I had to filter out
+        pretty much all the columns in order to get distinct data. For example, not all columns under latitude actually
+        contain the coordinate code. This data set contains data from all over NYC and includes columns that contain:
+        crash dates, crash times, boroughs, coordinates, collisions id, contributing factors, pedestrians injured & killed,
+            and much more.
         <hr>
 
         <h2>Techniques:</h2>
-        <p>placeholder</p>
+        <p>
+            For my first visualization, I had used a pie chart. I had to figure out which columns contained killed & injured,
+            which turned out to be many including pedestrian columns, motorist columns, cyclists columns, and persons columns.
+            After that I had to figure out the sum of injured/killed per column. Finally, I decided to create the pie chart,
+            add some colors to help visualize, make the pie chart pop out a little, created a legend, and gave it a title. Surprisingly the
+            amount of killed versus injured is actually minuscule.
+        </p> <img src="pie_chart.png" class="center"><br>
+        <p>
+            For my second visualization, I used a bar graph. I had to filter out the crash times from the csv file, and
+            I used "pd.datatime" to convert that data into the date data type by the hour. After that I used "groupby" and
+            "nunique" to filter out all the distinct crashes and place them upon my bar graph. The x-axis shows the time of
+            day in military time, and the y-axis shows the amount of crashes since 2016. As expected, the most crashes happen
+            during the late afternoon rush hour.
+        </p> <img src="hourly_collisions.png" class="center"><br>
+        <p>
+            For my third visualization, I used a histogram graph. Here I took all the data that gives me the contributing
+            factor that lead to the collisions. Then I simply figured out the sum per reason, which was within the column as a value.
+            Drunk driving is actually not in the top five according to this data, but driver distraction took first place which
+            I found very interesting.
+        </p> <img src="leading_collisions.png" class="center"><br>
+        <p>
+            For my fourth visualization, I used a "FiveThirtyEight-like" graph. This graph is similar to one of the above
+            that shows all collisions since 2016, except here I changed from hourly towards monthly and included all boroughs separately.
+            This was one of the more difficult graphs because I had to combine borough and collisions columns, then I had to convert
+            the crash date column into a datetime format so that I could filter by months. Finally, I would be able to combine
+            all three and the result is this graph that resembles the style of FiveThirtyEight.
+        </p> <img src="monthly_collisions.png" class="center"><br>
+        <p>
+            For my fifth and last visualization, I used a folium to create a fully interactive map. Using folium I was able
+            to create a map centered in Manhattan, NYC. I took all the collisions column and filtered out those that did not
+            contain any coordinates, then placed them into a new zip list within a for loop so that the program can create
+            marker labels for each individual crash. The map is fully interactive below.
+        </p> <iframe src="map.html" height="500" width="500" title="Interactive Map"></iframe><br>
+
         <hr>
 
+
+
+
         <h2>Citations:</h2>
-        <p>NYC Open Data:
-            <li>
-                <a>https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95</a>
-                <a>https://data.cityofnewyork.us/Environment/Air-Quality/c3uy-2p5r</a>
-                <a>https://data.cityofnewyork.us/Transportation/Bicycle-Routes/7vsa-caz7</a>
-                <a>https://data.cityofnewyork.us/Health/Open-Streets-Locations/uiay-nctu</a>
-            </li>
+        <p>
+            NYC Open Data:
+            <br>
+            <a href=https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95 target="_blank">
+                https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95</a><br>
            </p>
+        <p>
+            NYTimes:
+            <br>
+            <a href=https://www.nytimes.com/2021/09/30/nyregion/traffic-deaths-nyc.html target="_blank">
+            https://www.nytimes.com/2021/09/30/nyregion/traffic-deaths-nyc.html</a><br>
+            <a href=https://www.nytimes.com/2021/09/29/nyregion/nyc-congestion-ricing.html target="_blank">
+            https://www.nytimes.com/2021/09/29/nyregion/nyc-congestion-ricing.html</a><br>
+        </p>
+        <p>
+            LATimes:
+            <br>
+            <a href=https://www.latimes.com/nation/la-na-new-york-traffic-manhattan-20180124-story.html target="_blank">
+            https://www.latimes.com/nation/la-na-new-york-traffic-manhattan-20180124-story.html</a><br>
+        </p>
+        <p>
+            NYC Department Of Transportation:
+            <br>
+            <a href=https://vzv.nyc/ target="_blank">
+            https://vzv.nyc/</a><br>
+        </p>
         <hr>
+        <h2>
+            Full code can be found <a href=https://github.com/nlazaro/nlazaro.github.io/tree/main/Projects/data_science>here</a>
+        </h2>
     </body>
 </html>
