@@ -1,14 +1,19 @@
-html[data-theme='dark'] {
-    --hue: 210; /* Blue */
-    --accent-hue: 25; /* Orange */
-    --text-color-normal: hsl(var(--hue), 10%, 62%);
-    --text-color-light: hsl(var(--hue), 15%, 35%);
-    --text-color-richer: hsl(var(--hue), 50%, 72%);
-    --text-color-highlight: hsl(var(--accent-hue), 70%, 45%);
-    --link-color: hsl(var(--hue), 90%, 70%);
-    --accent-color: hsl(var(--accent-hue), 100%, 70%);
-    --error-color: rgb(240, 50, 50);
-    --button-background: hsl(var(--hue), 63%, 43%);
-    --button-text-color: black;
-    --background: hsl(var(--hue), 20%, 12%);
+body {
+    color: #222;
+    background: #fff;
+    font: 100% system-ui;
+  }
+  a {
+    color: #0033cc;
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    body {
+      color: #eee;
+      background: #121212;
+    }
+  
+    body a {
+      color: #809fff;
+    }
   }
