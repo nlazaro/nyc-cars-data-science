@@ -49,33 +49,33 @@
             After that I had to figure out the sum of injured/killed per column. Finally, I decided to create the pie chart,
             add some colors to help visualize, make the pie chart pop out a little, created a legend, and gave it a title. Surprisingly the
             amount of killed versus injured is actually minuscule.
-        </p> <img src="pie_chart.png" class="center" height="500" width="1000"><br>
+        </p> <img src="pie_chart.png" class="center"><br>
         <p>
             For my second visualization, I used a bar graph. I had to filter out the crash times from the csv file, and
             I used "pd.datatime" to convert that data into the date data type by the hour. After that I used "groupby" and
             "nunique" to filter out all the distinct crashes and place them upon my bar graph. The x-axis shows the time of
             day in military time, and the y-axis shows the amount of crashes since 2016. As expected, the most crashes happen
             during the late afternoon rush hour.
-        </p> <img src="hourly_collisions.png" class="center" height="500" width="1000"><br>
+        </p> <img src="hourly_collisions.png" class="center"><br>
         <p>
             For my third visualization, I used a histogram graph. Here I took all the data that gives me the contributing
             factor that lead to the collisions. Then I simply figured out the sum per reason, which was within the column as a value.
             Drunk driving is actually not in the top five according to this data, but driver distraction took first place which
             I found very interesting.
-        </p> <img src="leading_collisions.png" class="center" height="500" width="1000"><br>
+        </p> <img src="leading_collisions.png" class="center"><br>
         <p>
             For my fourth visualization, I used a "FiveThirtyEight-like" graph. This graph is similar to one of the above
             that shows all collisions since 2016, except here I changed from hourly towards monthly and included all boroughs separately.
             This was one of the more difficult graphs because I had to combine borough and collisions columns, then I had to convert
             the crash date column into a datetime format so that I could filter by months. Finally, I would be able to combine
             all three and the result is this graph that resembles the style of FiveThirtyEight.
-        </p> <img src="monthly_collisions.png" class="center" height="500" width="1000"><br>
+        </p> <img src="monthly_collisions.png" class="center"><br>
         <p>
             For my fifth and last visualization, I used a folium to create a fully interactive map. Using folium I was able
-            to create a map centered in Manhattan, NYC. I took all the collisions column and filtered out those that did not
+            to create a map centered in Manhattan, NYC. I took all the collisions that resulted in fatalities since 2016 and filtered out those that did not
             contain any coordinates, then placed them into a new zip list within a for loop so that the program can create
             marker labels for each individual crash. The map is fully interactive below.
-        </p> <iframe src="map.html" height="500" width="1000" title="Interactive Map"></iframe><br>
+        </p> <iframe src="https://github.com/nlazaro/nlazaro.github.io/blob/main/Projects/data_science/map.html" height="500" width="1000" title="Interactive Map"></iframe><br>
 
         <hr>
 
